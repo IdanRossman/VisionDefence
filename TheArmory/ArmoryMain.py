@@ -44,6 +44,7 @@
 
 
 def login():
+    print('___________________________________________________________________________________________________')
     print("""
  ___      _______  _______  ___   __    _ 
 |   |    |       ||       ||   | |  |  | |
@@ -60,19 +61,28 @@ def login():
     password = 'none'
     tries = 5
 
-    while 'Admin' not in username or 'password' not in password:
+    while 'Admin' != username or 'password' != password:
 
         print("")
         print('Tries Left: ' + str(tries))
         username = str(input('Username '))
         password = str(input('Password '))
 
-        if 'Admin' in username and 'password' in password:
+        if 'Admin' == username and 'password' == password:
             return mainmenu()
 
         #           All GOOD - Move to weapon selection
+    usrFlag= 'Admin' == username
+    psdFlag="password" != password
 
-        if 'Admin' in username and 'password' not in password:
+    if not usrFlag:
+        a=1
+    elif not psdFlag:
+        b=1
+    else:
+        c=1
+
+        if 'Admin' == username and 'password' != password:
             print('Password Incorrect!')
             tries -= 1
             if tries == 0:
@@ -80,7 +90,7 @@ def login():
         #           Password incorrect
         #           Return to beginning login screen to re-enter credentials
 
-        if 'Admin' not in username and 'password' in password:
+        if 'Admin' != username and 'password' == password:
             print('Credentials Incorrect!')
             tries -= 1
             if tries == 0:
@@ -88,21 +98,24 @@ def login():
         #           User name incorrect
         #           Return to beginning login screen to re-enter credentials
 
-        if 'Admin' not in username and 'password' not in password:
+        if 'Admin' != username and 'password' != password:
             return termination()
     #               Both Incorrect - SHUTDOWN
 
 def termination():
+    print('___________________________________________________________________________________________________')
     print("")
     print("SECURITY BREACH!\nSystem Termination in progress")
 
 def shutdown():
+    print('___________________________________________________________________________________________________')
     print('')
     print("Goodbye")
 #
 
 
 def mainmenu():
+    print('___________________________________________________________________________________________________')
     print("""
   __  __         _          __  __                     
  |  \/  |       (_)        |  \/  |                    
